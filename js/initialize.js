@@ -26,12 +26,16 @@ function initializeFPS() {
 }*/
 function initializeTileMap(){
     tileMap = [
-        ['wall', 'wall', 'wall', 'wall', 'wall', 'wall'],
-        ['wall', 'grass', 'grass', 'grass', 'grass', 'wall'],
-        ['wall', 'grass', 'grass', 'grass', 'grass', 'wall'],
-        ['wall', 'grass', 'grass', 'grass', 'grass', 'wall'],
-        ['wall', 'grass', 'grass', 'grass', 'grass', 'wall'],
-        ['wall', 'wall', 'wall', 'wall', 'wall', 'wall']
+        [0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0],
+        ['whatever','whatever','wall', 'wall', 'wall', 'wall', 'wall', 'wall','whatever','whatever'],
+        ['whatever','whatever','wall', 'grass', 'grass', 'grass', 'grass', 'wall','whatever','whatever'],
+        ['whatever','whatever','wall', 'grass', 'grass', 'grass', 'grass', 'wall','whatever','whatever'],
+        ['whatever','whatever','wall', 'grass', 'grass', 'grass', 'grass', 'wall','whatever','whatever'],
+        ['whatever','whatever','wall', 'grass', 'grass', 'grass', 'grass', 'wall','whatever','whatever'],
+        ['whatever','whatever','wall', 'wall', 'wall', 'wall', 'wall', 'wall','whatever','whatever'],
+        [0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0],
     ];
 }
 function initializeEverything() {

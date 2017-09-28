@@ -20,10 +20,10 @@ function drawRect(color, x, y, width, height) {
 function drawIsoRhombusFilled(color, x, y, squareSize){
     canvasContext.fillStyle = color;
     canvasContext.beginPath();
-    canvasContext.moveTo(x, y + squareSize / 4);
+    canvasContext.moveTo(x, y + squareSize / 2);
     canvasContext.lineTo(x + squareSize, y);
-    canvasContext.lineTo(x + 2 * squareSize, y + squareSize / 4);
-    canvasContext.lineTo(x + squareSize, y + squareSize /2);
+    canvasContext.lineTo(x + 2 * squareSize, y + squareSize / 2);
+    canvasContext.lineTo(x + squareSize, y + squareSize);
     canvasContext.closePath();
     canvasContext.fill();
 }
@@ -31,10 +31,10 @@ function drawIsoRhombusWire(fillColor, strokeColor, x, y, squareSize){
     canvasContext.fillStyle = fillColor;
     canvasContext.strokeStyle = strokeColor;
     canvasContext.beginPath();
-    canvasContext.moveTo(x, y + squareSize / 4);
+    canvasContext.moveTo(x, y + squareSize / 2);
     canvasContext.lineTo(x + squareSize, y);
-    canvasContext.lineTo(x + 2 * squareSize, y + squareSize / 4);
-    canvasContext.lineTo(x + squareSize, y + squareSize /2);
+    canvasContext.lineTo(x + 2 * squareSize, y + squareSize / 2);
+    canvasContext.lineTo(x + squareSize, y + squareSize);
     canvasContext.closePath();
     canvasContext.fill();
     canvasContext.stroke();
@@ -55,29 +55,45 @@ function drawWallTile(x,y){
         drawIsoRhombusFilled(wallColor, x, y - i, tileSize);
     }
     drawIsoRhombusWire(wallColor, wallOutlineColor, x, y - wallHeight, tileSize);
-    drawLine(wallOutlineColor, x + tileSize, y + tileSize / 2, x + tileSize, y - wallHeight + tileSize / 2);
+    drawLine(wallOutlineColor, x + tileSize, y + tileSize, x + tileSize, y - wallHeight + tileSize);
+}
+function drawEmptyTile(x,y){
+    drawIsoRhombusWire('black','white',x,y,tileSize);
+}
+function twoDToIso(pt){
+    var tempPt = {x:0,y:0};
+    tempPt.x = pt.x - pt.y;
+    tempPt.y = (pt.x + pt.y) / 2;
+    return tempPt;
 }
 function drawMap(x,y){
     var isoX;
     var isoY;
     var tileType;
+    canvasContext.save();
+    canvasContext.translate(x,y);
     for (var row = 0; row < tileMap.length; row ++){
         for (var column = 0; column < tileMap[row].length; column ++){
-            isoX = row * tileSize;
-            isoY = column * tileSize;
+            isoX = row * (tileSize - (tileSize / 32));
+            isoY = column * (tileSize -(tileSize / 32));
             tileType = tileMap[row][column];
+            var drawPt = twoDToIso({x: isoX, y: isoY});
             if (tileType == 'wall'){
-                drawWallTile(x + isoX, y + isoY);
+                drawWallTile(drawPt.x,drawPt.y);
             }
             else if(tileType == 'grass'){
-                drawGrassTile(x + isoX, y + isoY);
+                drawGrassTile(drawPt.x,drawPt.y);
+            }
+            else {
+                drawEmptyTile(drawPt.x,drawPt.y);
             }
         }
     }
+    canvasContext.restore();
 }
 function drawEverything() {
     drawCanvas();
-    drawMap(canvas.width / 2 - tileSize / 2, wallHeight);
+    drawMap(canvas.width / 2 - tileSize / 2, wallHeight + canvas.height / 4);
     //drawGrassTile(0,100);
     //drawWallTile(100,100);
 }
