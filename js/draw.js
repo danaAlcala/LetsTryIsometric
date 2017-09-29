@@ -91,9 +91,18 @@ function drawMap(x,y){
     }
     canvasContext.restore();
 }
+function drawText(color, text, x, y) {
+    canvasContext.fillStyle = color;
+    canvasContext.fillText(text, x, y);
+}
+function drawMapSizeText(lineHeight){
+    drawText('blue', 'Map Width: ' + tileMapWidth, canvas.width / 20, (canvas.height / 8) * 7);
+    drawText('blue', 'Map Height: ' + tileMapHeight, canvas.width / 20, (canvas.height / 8) * 7 + lineHeight); // adding the lineHeight acts as a line break
+}
 function drawEverything() {
     drawCanvas();
-    drawMap(canvas.width / 2 - tileSize / 2, wallHeight + canvas.height / 4);
+    drawMap(tileMapX, tileMapY);
+    drawMapSizeText(mapSizeTextLineHeight);
     //drawGrassTile(0,100);
     //drawWallTile(100,100);
 }
@@ -106,9 +115,4 @@ function drawCircle(color, x, y, radius) {
     canvasContext.fill();
 
     // console.log('drawCircle() complete');  // DEBUG
-}
-
-function drawText(color, text, x, y) {
-    canvasContext.fillStyle = color;
-    canvasContext.fillText(text, x, y);
 }

@@ -26,29 +26,60 @@ function initializeFPS() {
 }*/
 function initializeTileMap(){
     tileMap = [
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
-        ['whatever','whatever','wall', 'wall', 'wall', 'wall', 'wall', 'wall','whatever','whatever'],
-        ['whatever','whatever','wall', 'grass', 'grass', 'grass', 'grass', 'wall','whatever','whatever'],
-        ['whatever','whatever','wall', 'grass', 'grass', 'grass', 'grass', 'wall','whatever','whatever'],
-        ['whatever','whatever','wall', 'grass', 'grass', 'grass', 'grass', 'wall','whatever','whatever'],
-        ['whatever','whatever','wall', 'grass', 'grass', 'grass', 'grass', 'wall','whatever','whatever'],
-        ['whatever','whatever','wall', 'wall', 'wall', 'wall', 'wall', 'wall','whatever','whatever'],
-        [0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0],
+        /*TOP of diamond*/['wall',0,0,0,0,0,0,0,0,0,0,'wall'],/*LEFT of diamond*/
+        [0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,'wall', 'wall', 'wall', 'wall', 'wall', 'wall',0,0,0],
+        [0,0,0,'wall', 'grass', 'grass', 'grass', 'grass', 'wall',0,0,0],
+        [0,0,0,'wall', 'grass', 'grass', 'grass', 'grass', 'wall',0,0,0],
+        [0,0,0,'wall', 'grass', 'grass', 'grass', 'grass', 'wall',0,0,0],
+        [0,0,0,'wall', 'grass', 'grass', 'grass', 'grass', 'wall',0,0,0],
+        [0,0,0,'wall', 'wall', 'wall', 'wall', 'wall', 'wall',0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0],
+        /*RIGHT of diamond*/['wall',0,0,0,0,0,0,0,0,0,0,'wall']/*BOTTOM of diamond*/
     ];
 }
+function initializeTileMapWidth(){
+    for (var i = 0; i < tileMap[0].length; i ++){
+        tileMapWidth ++;
+    }
+}
+function initializeTileMapHeight(){
+    for (var i = 0; i < tileMap.length; i ++){
+        tileMapHeight ++;
+    }
+}
+function initializeTileMapSize(){
+    initializeTileMapWidth();
+    initializeTileMapHeight();
+}
+function initializeTileMapX(){
+    tileMapX = canvas.width / 2 - tileSize;
+}
+function initializeTileMapY(){
+    tileMapY = canvas.height / 4 - tileSize / 2;
+}
+function initializeTileMapLocation(){
+    initializeTileMapX();
+    initializeTileMapY();
+}
+function initializeFont(){
+    setFont(fontSize,fontStyle);
+}
+function initializePlayer(){
+    player = new Player();
+    player.location = new Point(8,12);
+    player.locationTrail = player.location;
+}
 function initializeEverything() {
-    // console.log('Called initializeEverything()');  // DEBUG
-
-    //debugCard = 0;
-
     initializeCanvas();
     initializeCanvasWidth();
     initializeFPS();
     initInput();
     initializeTileMap();
-
-    // console.log('initializeEverything() completed');  // DEBUG
-
+    initializeTileMapSize();
+    initializeTileMapLocation();
+    initializeFont();
+    initializePlayer();
 }
