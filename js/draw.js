@@ -27,6 +27,15 @@ function drawIsoRhombusFilled(color, x, y, squareSize){
     canvasContext.closePath();
     canvasContext.fill();
 }
+function drawHalfTile(color, x, y, squareSize){
+    canvasContext.fillStyle = color;
+    canvasContext.beginPath();
+    canvasContext.moveTo(x + squareSize, y);
+    canvasContext.lineTo(x + 2 * squareSize, y + squareSize / 2);
+    canvasContext.lineTo(x + squareSize, y + squareSize);
+    canvasContext.closePath();
+    canvasContext.fill();
+}
 function drawIsoRhombusWire(fillColor, strokeColor, x, y, squareSize){
     canvasContext.fillStyle = fillColor;
     canvasContext.strokeStyle = strokeColor;
@@ -51,6 +60,7 @@ function drawGrassTile(x,y){
     for (var i = 0; i <= grassHeight; i++){
         if (i < grassHeight){
             drawIsoRhombusFilled(grassOutlineColor, x, y - i, tileSize);
+            drawHalfTile(grassColorShade2, x, y - i, tileSize);
         }
         else{
             drawIsoRhombusFilled(grassColor, x, y - i, tileSize);
@@ -64,6 +74,7 @@ function drawWallTile(x,y){
     for (var i = 0; i <= wallHeight; i++){
         if (i < wallHeight){
             drawIsoRhombusFilled(wallOutlineColor, x, y - i, tileSize);
+            drawHalfTile(wallColorShade2, x, y - i, tileSize);
         }
         else{
             drawIsoRhombusFilled(wallColor, x, y - i, tileSize);

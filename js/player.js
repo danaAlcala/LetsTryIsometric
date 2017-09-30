@@ -21,7 +21,7 @@ function keepPlayerOffWalls(){
                 player.location.y = player.locationTrail.y;
             }
         }
-        console.log('Location: (' + player.location.x + ',' + player.location.y +')\nLastLocation: (' + player.locationTrail.x + ',' + player.locationTrail.y + ')');
+        //console.log('Location: (' + player.location.x + ',' + player.location.y +')\nLastLocation: (' + player.locationTrail.x + ',' + player.locationTrail.y + ')');
     }
 }
 
