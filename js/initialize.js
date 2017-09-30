@@ -78,8 +78,8 @@ function initializeFont(){
 function initializePlayer(){
     player = new Player();
     player.location = new Point();
-    player.location.x = 0;
-    player.location.y = 0;
+    player.location.x = 1;
+    player.location.y = 1;
     player.locationTrail = new Point();
     player.locationTrail.x = player.location.x;
     player.locationTrail.y = player.location.y;
