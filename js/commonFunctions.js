@@ -2,7 +2,7 @@ function randomNumber(start, end) {
     return Math.floor((Math.random() * end) + start);
 }
 function moveEverything() {
-    //keepPlayerOffWalls();
+    keepPlayerOffWalls();
     return true;
 }
 function updateAll() {

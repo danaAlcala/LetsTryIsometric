@@ -26,18 +26,18 @@ function initializeFPS() {
 }*/
 function initializeTileMap(){
     tileMap = [
-        /*TOP of diamond*/['wall',0,0,0,0,0,0,0,0,0,0,'wall'],/*LEFT of diamond*/
-        [0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,'wall', 'wall', 'wall', 'wall', 'wall', 'wall',0,0,0],
-        [0,0,0,'wall', 'grass', 'grass', 'grass', 'grass', 'wall',0,0,0],
-        [0,0,0,'wall', 'grass', 'grass', 'grass', 'grass', 'wall',0,0,0],
-        [0,0,0,'wall', 'grass', 'grass', 'grass', 'grass', 'wall',0,0,0],
-        [0,0,0,'wall', 'grass', 'grass', 'grass', 'grass', 'wall',0,0,0],
-        [0,0,0,'wall', 'wall', 'wall', 'wall', 'wall', 'wall',0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,0,0,0,0,0,0,0],
-        /*RIGHT of diamond*/['wall',0,0,0,0,0,0,0,0,0,0,'wall']/*BOTTOM of diamond*/
+        /*TOP of diamond*/['wall','wall','wall','wall','wall','wall','wall','wall','wall','wall','wall','wall'],/*LEFT of diamond*/
+        ['wall',0,0,0,0,0,0,0,0,0,0,'wall'],
+        ['wall',0,0,0,0,0,0,0,0,0,0,'wall'],
+        ['wall',0,0,'wall', 'wall', 0,0, 'wall', 'wall',0,0,'wall'],
+        ['wall',0,0,'wall', 'grass', 'grass', 'grass', 'grass', 'wall',0,0,'wall'],
+        ['wall',0,0,0, 'grass', 'grass', 'grass', 'grass', 0,0,0,'wall'],
+        ['wall',0,0,0, 'grass', 'grass', 'grass', 'grass', 0,0,0,'wall'],
+        ['wall',0,0,'wall', 'grass', 'grass', 'grass', 'grass', 'wall',0,0,'wall'],
+        ['wall',0,0,'wall', 'wall', 0,0, 'wall', 'wall',0,0,'wall'],
+        ['wall',0,0,0,0,0,0,0,0,0,0,'wall'],
+        ['wall',0,0,0,0,0,0,0,0,0,0,'wall'],
+        /*RIGHT of diamond*/['wall','wall','wall','wall','wall','wall','wall','wall','wall','wall','wall','wall']/*BOTTOM of diamond*/
     ];
 }
 function initializeTileMapWidth(){
@@ -69,8 +69,12 @@ function initializeFont(){
 }
 function initializePlayer(){
     player = new Player();
-    player.location = new Point(8,12);
-    player.locationTrail = player.location;
+    player.location = new Point();
+    player.location.x = 0;
+    player.location.y = 0;
+    player.locationTrail = new Point();
+    player.locationTrail.x = player.location.x;
+    player.locationTrail.y = player.location.y;
 }
 function initializeEverything() {
     initializeCanvas();
