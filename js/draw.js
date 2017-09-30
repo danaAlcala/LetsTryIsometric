@@ -48,7 +48,11 @@ function drawLine(strokeColor, startX, startY, endX, endY){
     canvasContext.stroke();
 }
 function drawGrassTile(x,y){
-    drawIsoRhombusFilled(grassColor, x, y, tileSize);
+    for (var i = 0; i <= grassHeight; i++){
+        drawIsoRhombusFilled(grassColor, x, y - i, tileSize);
+    }
+    drawIsoRhombusWire(grassColor, grassOutlineColor, x, y - grassHeight, tileSize);
+    drawLine(grassOutlineColor, x + tileSize, y + tileSize, x + tileSize, y - grassHeight + tileSize);
 }
 function drawWallTile(x,y){
     for (var i = 0; i <= wallHeight; i++){

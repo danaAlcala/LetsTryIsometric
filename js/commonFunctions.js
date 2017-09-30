@@ -10,6 +10,7 @@ function updateAll() {
     checkForInput();
     updateTileSize();
     updateUnitOfAltitude();
+    updateGrassHeight();
     updateWallHeight();
     drawEverything();
     debug();

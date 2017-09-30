@@ -33,6 +33,9 @@ function initializeUnitOfAltitude(){
 function initializeWallHeight(){
     updateWallHeight();
 }
+function initializeGrassHeight(){
+    updateGrassHeight();
+}
 function initializeTileMap(){
     tileMap = [
         /*TOP of diamond*/[0,0,0,0,0,0,0,0,0,0,0,0,0,0],/*LEFT of diamond*/
@@ -94,6 +97,7 @@ function initializeEverything() {
     initInput();
     initializeTileSize();
     initializeUnitOfAltitude();
+    initializeGrassHeight();
     initializeWallHeight();
     initializeTileMap();
     initializeTileMapSize();
