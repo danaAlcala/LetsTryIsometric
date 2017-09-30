@@ -54,6 +54,24 @@ function initializeTileMap(){
         /*RIGHT of diamond*/[0,0,0,0,0,0,0,0,0,0,0,0,0,0]/*BOTTOM of diamond*/
     ];
 }
+function initializeAltitudeMap(){
+    altitudeMap = [
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,8,6,4,2,0,0,0,0,0],
+        [0,0,0,0,0,8,6,4,2,0,0,0,0,0],
+        [0,0,0,0,0,8,6,4,2,0,0,0,0,0],
+        [0,0,0,0,0,8,6,4,2,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    ]
+}
 function initializeTileMapWidth(){
     for (var i = 0; i < tileMap[0].length; i ++){
         tileMapWidth ++;
@@ -100,6 +118,7 @@ function initializeEverything() {
     initializeGrassHeight();
     initializeWallHeight();
     initializeTileMap();
+    initializeAltitudeMap();
     initializeTileMapSize();
     initializeTileMapLocation();
     initializeFont();

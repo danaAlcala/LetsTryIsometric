@@ -86,7 +86,9 @@ function drawMap(x,y){
                 drawWallTile(drawPt.x,drawPt.y);
             }
             else if(tileType == 'grass'){
+                changeGrassHeight(altitudeMap[row][column]);
                 drawGrassTile(drawPt.x,drawPt.y);
+                updateGrassHeight();
             }
             else {
                 drawEmptyTile(drawPt.x,drawPt.y);

@@ -10,6 +10,7 @@ var tileMapX = 0;
 var tileMapY = 0;
 var startOnOuterTilesOK = false;
 var unitOfAltitude;
+var altitudeMap = [];
 
 function updateTileSize(){
     if (tileScale < 1){
@@ -25,6 +26,9 @@ function updateUnitOfAltitude(){
 }
 function updateGrassHeight(){
     grassHeight = unitOfAltitude * 2;
+}
+function changeGrassHeight(altitude){
+    grassHeight = unitOfAltitude * altitude;
 }
 function updateWallHeight(){
     wallHeight = unitOfAltitude * 10;
