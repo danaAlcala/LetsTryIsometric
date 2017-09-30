@@ -49,14 +49,26 @@ function drawLine(strokeColor, startX, startY, endX, endY){
 }
 function drawGrassTile(x,y){
     for (var i = 0; i <= grassHeight; i++){
-        drawIsoRhombusFilled(grassColor, x, y - i, tileSize);
+        if (i < grassHeight){
+            drawIsoRhombusFilled(grassOutlineColor, x, y - i, tileSize);
+        }
+        else{
+            drawIsoRhombusFilled(grassColor, x, y - i, tileSize);
+        }
+        
     }
     drawIsoRhombusWire(grassColor, grassOutlineColor, x, y - grassHeight, tileSize);
     drawLine(grassOutlineColor, x + tileSize, y + tileSize, x + tileSize, y - grassHeight + tileSize);
 }
 function drawWallTile(x,y){
     for (var i = 0; i <= wallHeight; i++){
-        drawIsoRhombusFilled(wallColor, x, y - i, tileSize);
+        if (i < wallHeight){
+            drawIsoRhombusFilled(wallOutlineColor, x, y - i, tileSize);
+        }
+        else{
+            drawIsoRhombusFilled(wallColor, x, y - i, tileSize);
+        }
+        
     }
     drawIsoRhombusWire(wallColor, wallOutlineColor, x, y - wallHeight, tileSize);
     drawLine(wallOutlineColor, x + tileSize, y + tileSize, x + tileSize, y - wallHeight + tileSize);
