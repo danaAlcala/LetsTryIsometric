@@ -9,6 +9,7 @@ function updateAll() {
     moveEverything();
     checkForInput();
     updateTileSize();
+    updateUnitOfAltitude();
     updateWallHeight();
     drawEverything();
     debug();

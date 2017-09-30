@@ -27,6 +27,9 @@ function initializeFPS() {
 function initializeTileSize(){
     updateTileSize();
 }
+function initializeUnitOfAltitude(){
+    updateUnitOfAltitude();
+}
 function initializeWallHeight(){
     updateWallHeight();
 }
@@ -90,6 +93,7 @@ function initializeEverything() {
     initializeFPS();
     initInput();
     initializeTileSize();
+    initializeUnitOfAltitude();
     initializeWallHeight();
     initializeTileMap();
     initializeTileMapSize();

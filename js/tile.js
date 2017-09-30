@@ -8,6 +8,7 @@ var tileMapHeight = 0;
 var tileMapX = 0;
 var tileMapY = 0;
 var startOnOuterTilesOK = false;
+var unitOfAltitude;
 
 function updateTileSize(){
     if (tileScale < 1){
@@ -18,8 +19,11 @@ function updateTileSize(){
     }
     tileSize = canvas.width / tileScale;
 }
+function updateUnitOfAltitude(){
+    unitOfAltitude = tileSize / 6;
+}
 function updateWallHeight(){
-    wallHeight = tileSize - (tileSize / 6);
+    wallHeight = unitOfAltitude * 5;
 }
 function countOuterTiles(){ //assumes that the playfield is enclosed in an unbroken, one-unit-thick wall
     var tileCount = 0;
@@ -27,7 +31,7 @@ function countOuterTiles(){ //assumes that the playfield is enclosed in an unbro
         tileCount ++;
         for (var column = 0; column < tileMap[row].length; column ++){
             if (tileMap[row][column] == 'wall'){
-                return tileCount;
+                return tileCount; //this count will include the outer wall, counting from out-to-in
             }
         }
     }
