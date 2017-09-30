@@ -7,6 +7,9 @@ function moveEverything() {
 }
 function updateAll() {
     moveEverything();
+    checkForInput();
+    updateTileSize();
+    updateWallHeight();
     drawEverything();
     debug();
 }

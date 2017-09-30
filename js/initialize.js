@@ -24,20 +24,28 @@ function initializeFPS() {
     imageHeight = canvas.height * 0.186666666666;
     imageScaleModifier = 1;
 }*/
+function initializeTileSize(){
+    updateTileSize();
+}
+function initializeWallHeight(){
+    updateWallHeight();
+}
 function initializeTileMap(){
     tileMap = [
-        /*TOP of diamond*/['wall','wall','wall','wall','wall','wall','wall','wall','wall','wall','wall','wall'],/*LEFT of diamond*/
-        ['wall',0,0,0,0,0,0,0,0,0,0,'wall'],
-        ['wall',0,0,0,0,0,0,0,0,0,0,'wall'],
-        ['wall',0,0,'wall', 'wall', 0,0, 'wall', 'wall',0,0,'wall'],
-        ['wall',0,0,'wall', 'grass', 'grass', 'grass', 'grass', 'wall',0,0,'wall'],
-        ['wall',0,0,0, 'grass', 'grass', 'grass', 'grass', 0,0,0,'wall'],
-        ['wall',0,0,0, 'grass', 'grass', 'grass', 'grass', 0,0,0,'wall'],
-        ['wall',0,0,'wall', 'grass', 'grass', 'grass', 'grass', 'wall',0,0,'wall'],
-        ['wall',0,0,'wall', 'wall', 0,0, 'wall', 'wall',0,0,'wall'],
-        ['wall',0,0,0,0,0,0,0,0,0,0,'wall'],
-        ['wall',0,0,0,0,0,0,0,0,0,0,'wall'],
-        /*RIGHT of diamond*/['wall','wall','wall','wall','wall','wall','wall','wall','wall','wall','wall','wall']/*BOTTOM of diamond*/
+        /*TOP of diamond*/[0,0,0,0,0,0,0,0,0,0,0,0,0,0],/*LEFT of diamond*/
+        [0,'wall','wall','wall','wall','wall','wall','wall','wall','wall','wall','wall','wall',0],
+        [0,'wall',0,0,0,0,0,0,0,0,0,0,'wall',0],
+        [0,'wall',0,0,0,0,0,0,0,0,0,0,'wall',0],
+        [0,'wall',0,0,'wall', 'wall', 0,0, 'wall', 'wall',0,0,'wall',0],
+        [0,'wall',0,0,'wall', 'grass', 'grass', 'grass', 'grass', 'wall',0,0,'wall',0],
+        [0,'wall',0,0,0, 'grass', 'grass', 'grass', 'grass', 0,0,0,'wall',0],
+        [0,'wall',0,0,0, 'grass', 'grass', 'grass', 'grass', 0,0,0,'wall',0],
+        [0,'wall',0,0,'wall', 'grass', 'grass', 'grass', 'grass', 'wall',0,0,'wall',0],
+        [0,'wall',0,0,'wall', 'wall', 0,0, 'wall', 'wall',0,0,'wall',0],
+        [0,'wall',0,0,0,0,0,0,0,0,0,0,'wall',0],
+        [0,'wall',0,0,0,0,0,0,0,0,0,0,'wall',0],
+        [0,'wall','wall','wall','wall','wall','wall','wall','wall','wall','wall','wall','wall',0],
+        /*RIGHT of diamond*/[0,0,0,0,0,0,0,0,0,0,0,0,0,0]/*BOTTOM of diamond*/
     ];
 }
 function initializeTileMapWidth(){
@@ -81,6 +89,8 @@ function initializeEverything() {
     initializeCanvasWidth();
     initializeFPS();
     initInput();
+    initializeTileSize();
+    initializeWallHeight();
     initializeTileMap();
     initializeTileMapSize();
     initializeTileMapLocation();
