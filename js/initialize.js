@@ -100,6 +100,7 @@ function initializePlayer(){
     player.locationTrail.x = player.location.x;
     player.locationTrail.y = player.location.y;
 }
+
 function initializeEverything() {
     initializeCanvas();
     initializeCanvasWidth();

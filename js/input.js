@@ -12,6 +12,9 @@ function setKeyHoldState(thisKey, setTo) {
     if (thisKey == KEY_DOWN_ARROW) {
         holdDown = setTo;
     }
+    if (thisKey == KEY_L) {
+        holdL = setTo;
+    }
 }
 function initInput() {
     document.addEventListener("keydown", keyPressed);
@@ -33,12 +36,16 @@ function checkForInput() {
 		}		
 		unHold = true;		
 	}
-	if (holdDown & unHold == false) {
+	if (holdDown && unHold == false) {
         tileScale += 5;
         console.log("tileScale:" + tileScale);
 		unHold = true;		
+    }
+    if (holdL && unHold == false) {
+        toggleLevelEditor();
+		unHold = true;		
 	}
-	if (holdUp == false && holdDown == false) {
+	if (holdUp == false && holdDown == false && holdL == false) {
 		unHold = false;
 	}		
 }
