@@ -139,17 +139,17 @@ function drawLevelEditorOutline(x, y, squareSize){
     canvasContext.lineTo(x + squareSize, y);
     canvasContext.lineTo(x + 2 * squareSize, y + squareSize / 2);
     canvasContext.lineTo((x + 2 * squareSize) - levelEditorOutlineThickness, (y + squareSize / 2)) + levelEditorOutlineThickness;
-    canvasContext.lineTo(x + squareSize, y + levelEditorOutlineThickness);
-    canvasContext.lineTo(x, y + squareSize / 2);
+    canvasContext.lineTo(x + squareSize, y + levelEditorOutlineThickness/2);
+    canvasContext.lineTo(x + levelEditorOutlineThickness, y + squareSize / 2);
     canvasContext.closePath();
     canvasContext.fill();
     canvasContext.beginPath();
     canvasContext.moveTo(x, y + squareSize / 2);
+    canvasContext.lineTo(x + squareSize, y + squareSize);
+    canvasContext.lineTo(x + squareSize * 2, y + squareSize / 2);
+    canvasContext.lineTo(x + squareSize * 2 - levelEditorOutlineThickness, y + squareSize / 2);
+    canvasContext.lineTo(x + squareSize, y + squareSize - levelEditorOutlineThickness/2);
     canvasContext.lineTo(x + levelEditorOutlineThickness, y + squareSize / 2);
-    canvasContext.lineTo(x + squareSize / 2, y + squareSize - levelEditorOutlineThickness);
-    canvasContext.lineTo(x + squareSize - levelEditorOutlineThickness, y + squareSize / 2);
-    canvasContext.lineTo(x + squareSize, y + squareSize / 2);
-    canvasContext.lineTo(x + squareSize / 2, y + squareSize);
     canvasContext.closePath();
     canvasContext.fill();
 }

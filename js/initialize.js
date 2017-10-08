@@ -120,7 +120,7 @@ function initializePlayer(){
     player.locationTrail.y = player.location.y;
 }
 function initializeLevelEditorOutlineThickness(){
-    levelEditorOutlineThickness = tileSize / 16;
+    levelEditorOutlineThickness = tileSize / 4;
 }
 
 function initializeEverything() {
