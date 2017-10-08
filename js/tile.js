@@ -1,5 +1,5 @@
 var tileSize;
-var tileScale = 25;
+var tileScale = 30;
 var wallHeight;
 var grassHeight;
 var tileMap = [];

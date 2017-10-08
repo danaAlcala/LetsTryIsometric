@@ -165,6 +165,8 @@ function drawLevelEditor(x,y){
             var drawPt = twoDToIso({x: isoX, y: isoY});
             if (levelEditorMap[row][column] == 1){
                 drawLevelEditorOutline(drawPt.x,drawPt.y, tileSize);
+                levelEditorTileX = column;
+                levelEditorTileY = row;
             }
         }
     }
