@@ -64,6 +64,25 @@ function initializeAltitudeMap(){
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     ]
 }
+function initializeLevelEditorMap(){
+    levelEditorMap = [
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,1,0],
+        [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+
+    ]
+}
 function initializeTileMapWidth(){
     for (var i = 0; i < tileMap[0].length; i ++){
         tileMapWidth ++;
@@ -100,6 +119,9 @@ function initializePlayer(){
     player.locationTrail.x = player.location.x;
     player.locationTrail.y = player.location.y;
 }
+function initializeLevelEditorOutlineThickness(){
+    levelEditorOutlineThickness = tileSize / 16;
+}
 
 function initializeEverything() {
     initializeCanvas();
@@ -112,8 +134,10 @@ function initializeEverything() {
     initializeWallHeight();
     initializeTileMap();
     initializeAltitudeMap();
+    initializeLevelEditorMap();
     initializeTileMapSize();
     initializeTileMapLocation();
     initializeFont();
     initializePlayer();
+    initializeLevelEditorOutlineThickness();
 }
