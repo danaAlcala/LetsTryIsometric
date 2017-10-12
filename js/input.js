@@ -1,4 +1,3 @@
-var unhold = false;
 function setKeyHoldState(thisKey, setTo) {
     switch (thisKey){
         case KEY_LEFT_ARROW: holdLeft = setTo;
@@ -13,26 +12,22 @@ function setKeyHoldState(thisKey, setTo) {
             break;
         case KEY_W: holdW = setTo;
             break;
+        case KEY_S: holdS = setTo;
+            break;
+        case KEY_A: holdA = setTo;
+            break;
+        case KEY_D: holdD = setTo;
+            break;
+        case KEY_Q: holdQ = setTo;
+            break;
+        case KEY_E: holdE = setTo;
+            break;
+        case KEY_Z: holdZ = setTo;
+            break;
+        case KEY_X: holdX = setTo;
+            break;
         default: break;
     }
-    /*if (thisKey == KEY_LEFT_ARROW) {
-        holdLeft = setTo;
-    }
-    if (thisKey == KEY_RIGHT_ARROW) {
-        holdRight = setTo;
-    }
-    if (thisKey == KEY_UP_ARROW) {
-        holdUp = setTo;
-    }
-    if (thisKey == KEY_DOWN_ARROW) {
-        holdDown = setTo;
-    }
-    if (thisKey == KEY_L) {
-        holdL = setTo;
-    }
-    if (thisKey == KEY_W){
-        holdW = setTo;
-    }*/
 }
 function initInput() {
     document.addEventListener("keydown", keyPressed);
@@ -47,7 +42,6 @@ function keyReleased(evt) {
 }
 
 function checkForInput() {
-    unhold = false;
 	if ((holdUp || holdW) && unHold == false) {
 		if (!levelEditorActive){
             if (tileScale > 1) {
@@ -60,7 +54,7 @@ function checkForInput() {
         }
         unHold = true;
     }
-	if (holdDown && unHold == false) {
+	if ((holdDown || holdS) && unHold == false) {
         if (!levelEditorActive){
             if (tileScale < 150){
                 tileScale += 5;
@@ -72,11 +66,53 @@ function checkForInput() {
         }
 		unHold = true;		
     }
+    if ((holdLeft || holdA) && unHold == false) {
+        if (!levelEditorActive){
+            tileMapX -= tileSize;
+        }
+        else{
+            moveLevelEditorTileLeft()
+        }
+        unHold = true;
+    }
+    if ((holdRight || holdD) && unHold == false) {
+        if (!levelEditorActive){
+            tileMapX += tileSize;
+        }
+        else{
+            moveLevelEditorTileRight()
+        }
+        unHold = true;
+    }
+    if (holdQ && !unHold){
+        if (levelEditorActive){
+            moveLevelEditorTileUpLeft();
+        }
+        unHold = true;
+    }
+    if (holdE && !unHold){
+        if (levelEditorActive){
+            moveLevelEditorTileUpRight();
+        }
+        unHold = true;
+    }
+    if (holdZ && !unHold){
+        if (levelEditorActive){
+            moveLevelEditorTileDownLeft();
+        }
+        unHold = true;
+    }
+    if (holdX && !unHold){
+        if (levelEditorActive){
+            moveLevelEditorTileDownRight();
+        }
+        unHold = true;
+    }
     if (holdL && unHold == false) {
         toggleLevelEditor();
 		unHold = true;		
-	}
-	if (holdUp == false && holdDown == false && holdL == false && holdW == false) {
+    }
+	if (!holdUp && !holdDown && !holdL && !holdW && !holdS && !holdLeft && !holdA && !holdRight && !holdD && !holdQ && !holdE && !holdZ && !holdX) {
 		unHold = false;
 	}		
 }
