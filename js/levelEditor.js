@@ -26,7 +26,11 @@ function moveLevelEditorTileUp(){
     }
 }
 function moveLevelEditorTileDown(){
-    if (levelEditorTileY < 13 && levelEditorTileX < 13){
+    var MAX_Y_INDEX;
+    var MAX_X_INDEX;
+    MAX_Y_INDEX = tileMapHeight - 1;
+    MAX_X_INDEX = tileMapWidth - 1;
+    if (levelEditorTileY < MAX_Y_INDEX && levelEditorTileX < MAX_X_INDEX){
         var newY = levelEditorTileY + 1;
         var newX = levelEditorTileX + 1;
         levelEditorMap[levelEditorTileY][levelEditorTileX] = 0;
@@ -36,7 +40,9 @@ function moveLevelEditorTileDown(){
     }
 }
 function moveLevelEditorTileLeft(){
-    if (levelEditorTileY > 0 && levelEditorTileX < 13){
+    var MAX_X_INDEX;
+    MAX_X_INDEX = tileMapWidth - 1;
+    if (levelEditorTileY > 0 && levelEditorTileX < MAX_X_INDEX){
         var newY = levelEditorTileY - 1;
         var newX = levelEditorTileX + 1;
         levelEditorMap[levelEditorTileY][levelEditorTileX] = 0;
@@ -46,7 +52,9 @@ function moveLevelEditorTileLeft(){
     }
 }
 function moveLevelEditorTileRight(){
-    if (levelEditorTileY < 13 && levelEditorTileX > 0){
+    var MAX_Y_INDEX;
+    MAX_Y_INDEX = tileMapHeight - 1;
+    if (levelEditorTileY < MAX_Y_INDEX && levelEditorTileX > 0){
         var newY = levelEditorTileY + 1;
         var newX = levelEditorTileX - 1;
         levelEditorMap[levelEditorTileY][levelEditorTileX] = 0;
@@ -76,7 +84,9 @@ function moveLevelEditorTileUpRight(){
     }
 }
 function moveLevelEditorTileDownLeft(){
-    if (levelEditorTileX < 13){
+    var MAX_X_INDEX;
+    MAX_X_INDEX = tileMapWidth - 1;
+    if (levelEditorTileX < MAX_X_INDEX){
         var newY = levelEditorTileY;
         var newX = levelEditorTileX + 1;
         levelEditorMap[levelEditorTileY][levelEditorTileX] = 0;
@@ -86,7 +96,9 @@ function moveLevelEditorTileDownLeft(){
     }
 }
 function moveLevelEditorTileDownRight(){
-    if (levelEditorTileY < 13){
+    var MAX_Y_INDEX;
+    MAX_Y_INDEX = tileMapHeight - 1;
+    if (levelEditorTileY < MAX_Y_INDEX){
         var newY = levelEditorTileY + 1;
         var newX = levelEditorTileX;
         levelEditorMap[levelEditorTileY][levelEditorTileX] = 0;
