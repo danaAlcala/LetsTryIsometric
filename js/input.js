@@ -57,7 +57,7 @@ function checkForInput() {
             } 	
         }
         else{
-            moveLevelEditorTileUp();	
+            moveLevelEditorTile('up');	
         }
         unHold = true;
     }
@@ -69,7 +69,7 @@ function checkForInput() {
             }
         }
         else{
-            moveLevelEditorTileDown();
+            moveLevelEditorTile('down');
         }
 		unHold = true;		
     }
@@ -78,7 +78,7 @@ function checkForInput() {
             tileMapX -= tileSize;
         }
         else{
-            moveLevelEditorTileLeft()
+            moveLevelEditorTile('left')
         }
         unHold = true;
     }
@@ -87,31 +87,31 @@ function checkForInput() {
             tileMapX += tileSize;
         }
         else{
-            moveLevelEditorTileRight()
+            moveLevelEditorTile('right')
         }
         unHold = true;
     }
     if (holdQ && !unHold){
         if (levelEditorActive){
-            moveLevelEditorTileUpLeft();
+            moveLevelEditorTile('upLeft');
         }
         unHold = true;
     }
     if (holdE && !unHold){
         if (levelEditorActive){
-            moveLevelEditorTileUpRight();
+            moveLevelEditorTile('upRight');
         }
         unHold = true;
     }
     if (holdZ && !unHold){
         if (levelEditorActive){
-            moveLevelEditorTileDownLeft();
+            moveLevelEditorTile('downLeft');
         }
         unHold = true;
     }
     if (holdX && !unHold){
         if (levelEditorActive){
-            moveLevelEditorTileDownRight();
+            moveLevelEditorTile('downRight');
         }
         unHold = true;
     }
