@@ -175,36 +175,36 @@ function checkForInput() {
     }
     if ((holdU) && unHold == false) {
         if (!levelEditorActive){
-            tileMapY -= camMovementSpeed;
+            tileMapY -= camMovementSpeed / 2;
         }
     }
     if ((holdJ) && unHold == false) {
         if (!levelEditorActive){
-            tileMapY += camMovementSpeed;
+            tileMapY += camMovementSpeed / 2;
         }
     }
     if ((holdY) && unHold == false) {
         if (!levelEditorActive){
             tileMapX -= camMovementSpeed;
-            tileMapY -= camMovementSpeed;
+            tileMapY -= camMovementSpeed / 2;
         }
     }
     if ((holdI) && unHold == false) {
         if (!levelEditorActive){
             tileMapX += camMovementSpeed;
-            tileMapY -= camMovementSpeed;
+            tileMapY -= camMovementSpeed / 2;
         }
     }
     if ((holdN) && unHold == false) {
         if (!levelEditorActive){
             tileMapX -= camMovementSpeed;
-            tileMapY += camMovementSpeed;
+            tileMapY += camMovementSpeed / 2;
         }
     }
     if ((holdM) && unHold == false) {
         if (!levelEditorActive){
             tileMapX += camMovementSpeed;
-            tileMapY += camMovementSpeed;
+            tileMapY += camMovementSpeed / 2;
         }
     }
 	if (!holdUp && !holdDown && !holdL && !holdW && !holdS && !holdLeft && !holdA && !holdRight && !holdD && !holdQ && !holdE && !holdZ && !holdX && !hold0 && !hold1 && !hold2 && !holdU && !holdJ && !holdH && !holdK && !holdY && !holdI && !holdN && !holdM) {

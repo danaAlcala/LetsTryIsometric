@@ -13,6 +13,7 @@ function updateAll() {
     updateGrassHeight();
     updateWallHeight();
     updateCamMovementSpeed();
+    updateMapSizeText();
     drawEverything();
     debug();
 }

@@ -2,9 +2,11 @@ function initializeCanvas() {
     canvas = document.getElementById('gameCanvas'); // This grabs the canvas from the HTML for use in the script.
     canvasContext = canvas.getContext('2d'); // "The getContext() method returns an object that provides methods and properties for drawing on the canvas." from w3schools.com
     canvasBGColor = 'black';
+    defaultCanvasWidth = canvas.width;
+    defaultCanvasHeight = canvas.height;
 }
-function initializeCanvasWidth(){
-    canvasWidth = canvas.width;
+function initializeCanvasSize(){
+    updateCanvasSize();
 }
 function initializeFPS() {
     framesPerSecond = 30;
@@ -108,7 +110,7 @@ function initializeTileMapLocation(){
     initializeTileMapY();
 }
 function initializeFont(){
-    setFont(fontSize,fontStyle);
+    updateFont();
 }
 function initializePlayer(){
     player = new Player();
@@ -128,7 +130,7 @@ function initializeCamMovementSpeed(){
 
 function initializeEverything() {
     initializeCanvas();
-    initializeCanvasWidth();
+    initializeCanvasSize();
     initializeFPS();
     initInput();
     initializeTileSize();
