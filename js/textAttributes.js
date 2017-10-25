@@ -9,19 +9,22 @@ function updateFont(){
 }
 function updateMapSizeText(){
     var difference = 0;
-    var scaleBy = 0;
+    var scaleBy = 1;
     if (canvas.width > defaultCanvasWidth){
         difference = canvas.width - defaultCanvasWidth;
         scaleBy = (difference / canvas.width) + 1;
+        console.log('scaleBy =' + scaleBy);
     }
-    if (canvas.width < defaultCanvasWidth){
+    else if (canvas.width < defaultCanvasWidth){
         difference = defaultCanvasWidth - canvas.width;
         scaleBy = difference / canvas.width;
+        console.log('scaleBy =' + scaleBy);
     }
     else{
         scaleBy = 1;
+        console.log('scaleBy =' + scaleBy);
     }
-    fontSize = fontSize * scaleBy;
-    mapSizeTextLineHeight = mapSizeTextLineHeight * scaleBy;
+    fontSize = Math.floor(defaultFontSize * scaleBy);
+    mapSizeTextLineHeight = Math.floor(defaultMapSizeTextLineHeight * scaleBy);
     updateFont();
 }
